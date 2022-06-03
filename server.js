@@ -10,7 +10,7 @@ require("dotenv").config();
 
 app.use(
   cors({
-    origin: "https://629a0ebb027d9700080a85cb--shimmering-unicorn-81dd37.netlify.app/",
+    origin: "https://shimmering-unicorn-81dd37.netlify.app/",
     credentials: true,
   })
 );
