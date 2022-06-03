@@ -12,6 +12,7 @@ app.use(
   cors({
     origin: "http://127.0.0.1:3000",
     origin: "http://localhost:3000",
+    origin: "https://629a000957f91b6e1ed7b6de--shimmering-unicorn-81dd37.netlify.app/",
     credentials: true,
   })
 );
