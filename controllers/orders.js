@@ -65,7 +65,26 @@ function getOrders(req, res) {
     });
 }
 
+function getUserOrder(req, res) {
+  const auth = req.headers.authorization.split(" ")[1];
+  const decoded = jwt.verify(auth, process.env.TOKEN_SECRET);
+  order
+    .find({ user: decoded.id })
+    .populate("products.product")
+    .then((orders) => {
+      res.status(200).json(orders);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        message: "Error getting orders",
+        err,
+      });
+    });
+}
+
 module.exports = {
   addOrder,
   getOrders,
+  getUserOrder,
 };
