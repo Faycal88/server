@@ -10,9 +10,7 @@ require("dotenv").config();
 
 app.use(
   cors({
-    origin: "https://eternelle-plantes.store",
-    origin: "127.0.0.1:3000",
-    origin: "localhost:3000",
+    origin: ["http://localhost:3000", "https://eternelle-plantes.store"],
     credentials: true,
   })
 );
