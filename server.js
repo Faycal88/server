@@ -4,7 +4,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const { urlencoded } = require("express");
 const bodyParser = require("body-parser");
-const sitemap = require("./sitemap.xml");
 /* const https = require("https");
 const fs = require("fs"); */
 require("dotenv").config();
@@ -32,6 +31,7 @@ const OrderRouter = require("./routes/orders");
 const CollectionRouter = require("./routes/collections");
 const CategoryRouter = require("./routes/categories");
 const NewsletterRouter = require("./routes/newsletter");
+const SitemapProvider = require("./routes/sitemap");
 
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
@@ -46,13 +46,10 @@ app.use("/orders", OrderRouter);
 app.use("/collections", CollectionRouter);
 app.use("/categories", CategoryRouter);
 app.use("/subscribers", NewsletterRouter);
+app.use("/sitemap", SitemapProvider);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
-});
-
-app.get("/sitemap.xml", (req, res) => {
-  res.send(sitemap);
 });
 
 /* const httpsServer = https.createServer(
