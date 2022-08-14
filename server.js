@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const { urlencoded } = require("express");
 const bodyParser = require("body-parser");
+const sitemap = require("./sitemap.xml");
 /* const https = require("https");
 const fs = require("fs"); */
 require("dotenv").config();
@@ -48,6 +49,10 @@ app.use("/subscribers", NewsletterRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
+});
+
+app.get("/sitemap.xml", (req, res) => {
+  res.send(sitemap);
 });
 
 /* const httpsServer = https.createServer(
