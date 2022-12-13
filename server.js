@@ -10,7 +10,7 @@ require("dotenv").config();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://eternelle-plantes.store","https://master--shimmering-unicorn-81dd37.netlify.app/"],
+    origin: ["http://localhost:3000", "https://eternelle-plantes.store","https://6398efb3bbf3fd00092148a0--shimmering-unicorn-81dd37.netlify.app/"],
     credentials: true,
   })
 );
