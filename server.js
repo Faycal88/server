@@ -8,12 +8,7 @@ const bodyParser = require("body-parser");
 const fs = require("fs"); */
 require("dotenv").config();
 
-app.use(
-  cors({
-    origin: ["https://shimmering-unicorn-81dd37.netlify.app", "https://eternelle-plantes.store","https://6398efb3bbf3fd00092148a0--shimmering-unicorn-81dd37.netlify.app/"],
-    credentials: true,
-  })
-);
+app.use(cors({ origin: 'https://shimmering-unicorn-81dd37.netlify.app' }))
 
 mongoose
   .connect(process.env.DATABASE_URL, {
